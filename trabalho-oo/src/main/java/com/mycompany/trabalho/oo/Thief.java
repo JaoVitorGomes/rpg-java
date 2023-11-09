@@ -16,7 +16,7 @@ public class Thief extends Character {
 
     @Override
     public void attack(Enemy opponent) {
-        System.out.println(getName() + " attacks " + opponent.getName() + " with a dagger.");
-        opponent.setHealth(this.attackPower);
+        System.out.println(getName() + " ataca " + opponent.getName() + " com uma adaga.");
+        opponent.takeDamage(this.attackPower);
     }
 }

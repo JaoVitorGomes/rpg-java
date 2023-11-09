@@ -17,8 +17,6 @@ public abstract class Character {
         this.name = name;
         this.health = health;
         this.attackPower = attack;
-        
-   
     }
 
     public abstract void attack(Enemy opponent);
@@ -31,20 +29,17 @@ public abstract class Character {
         return health;
     }
 
-    public void setHealth(int damage) {
-        this.health = this.health - damage;
-    }
-    
-    public int getAttackPower() {
-        return attackPower;
-    }
-
     public void takeDamage(int damage) {
         this.health -= damage;
         if (this.health <= 0) {
             this.health = 0;
         }
     }
+    
+    public int getAttackPower() {
+        return attackPower;
+    }
+
     
     public boolean isAlive() {
         return health > 0;

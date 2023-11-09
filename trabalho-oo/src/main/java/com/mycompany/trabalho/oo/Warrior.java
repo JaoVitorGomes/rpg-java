@@ -15,7 +15,7 @@ public class Warrior extends Character {
 
     @Override
     public void attack(Enemy opponent) {
-        System.out.println(getName() + " attacks " + opponent.getName() + " with a sword.");
-        opponent.setHealth(opponent.getHealth() - 5);
+        System.out.println(getName() + " ataca " + opponent.getName() + " com uma espada.");
+        opponent.takeDamage(this.attackPower);
     }
 }

@@ -8,19 +8,35 @@ package com.mycompany.trabalho.oo;
  *
  * @author jv
  */
-import java.util.Scanner;
+import java.util.*;
 
 public class Game {
 
     public void startGame() {
-        // Character creation logic
-        Character player = createCharacter();
+        
+        
+        //variables
+        String name;
+        int option;
+        Scanner teclado = new Scanner(System.in);
+        
+        // Character and enemy creation logic
+        System.out.println("Bem vindo!");
+        
+        System.out.println("Digite o nome do jogador:");
+        name = teclado.nextLine();
+        
+        System.out.println("Escolha qual classe vai escolher");
+        System.out.println("0: Guerreiro, 1: Mago, 2: Ladrão");
+        option = teclado.nextInt();
+        
+        Character player = createCharacter(option, name);
         Enemy enemy = createEnemy();
 
         // Combat logic
         while (player.getHealth() > 0 && enemy.getHealth() > 0) {
-            System.out.println("\n" + player.getName() + " has " + player.getHealth() + " health.");
-            System.out.println(enemy.getName() + " has " + enemy.getHealth() + " health.");
+            System.out.println("\n" + player.getName() + " tem " + player.getHealth() + " de vida.");
+            System.out.println(enemy.getName() + " tem " + enemy.getHealth() + " de vida.");
             player.attack(enemy);
 
             if (enemy.getHealth() > 0) {
@@ -30,17 +46,31 @@ public class Game {
 
         // Game over logic
         if (player.getHealth() > 0) {
-            System.out.println("\nCongratulations! " + player.getName() + " has won!");
+            System.out.println("\nParabens! " + player.getName() + " você ganhou!");
         } else {
-            System.out.println("\n" + player.getName() + " has lost.");
+            System.out.println("\n" + player.getName() + " perdeu!.");
         }
     }
 
-    public Character createCharacter() {
-        return new Thief("Player 1", 100, 5);
+    // Create character
+    public Character createCharacter(int option, String name) {
+        //Character options
+        switch(option){
+            case 0 -> {
+                return new Warrior(name, 200,2);
+            }
+            case 1 -> {
+                return new Mage(name,75,6);
+            }
+            case 2 -> {
+                return new Thief(name, 100, 5);
+            }
+        }
+        return new Thief(name, 100, 5);
     }
 
+    // Create Enemy
     public Enemy createEnemy() {
-        return new Enemy("Enemy 1", 50,2);
+        return new Enemy("Goblin fraco", 50,2);
     }
 }

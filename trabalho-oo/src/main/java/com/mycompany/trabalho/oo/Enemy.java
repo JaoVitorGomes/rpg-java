@@ -9,18 +9,16 @@ package com.mycompany.trabalho.oo;
  * @author jv
  */
 public class Enemy {
+    //variables
     private String name;
     private int health;
     private int damage;
 
     public Enemy(String name, int health, int damage) {
+        // Set values
         this.name = name;
         this.health = health;
         this.damage = damage;
-    }
-    
-    public void setHealth(int damage){
-        this.health = this.health - damage;
     }
 
     public String getName() {
@@ -47,7 +45,7 @@ public class Enemy {
     }
     
     public void attack(Character player) {
-        System.out.println(getName() + " attacks " + player.getName() + " with a dagger.");
-        player.setHealth(this.damage);
+        System.out.println(getName() + " ataca " + player.getName() + " com um porrete.");
+        player.takeDamage(this.damage);
     }
 }

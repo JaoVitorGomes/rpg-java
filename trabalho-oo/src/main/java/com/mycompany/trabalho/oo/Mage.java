@@ -15,7 +15,7 @@ public class Mage extends Character {
 
     @Override
     public void attack(Enemy opponent) {
-        System.out.println(getName() + " attacks " + opponent.getName() + " with a fireball.");
-        opponent.setHealth(opponent.getHealth() - 10);
+        System.out.println(getName() + " ataca " + opponent.getName() + " com fireball.");
+        opponent.takeDamage(this.attackPower);
     }
 }
