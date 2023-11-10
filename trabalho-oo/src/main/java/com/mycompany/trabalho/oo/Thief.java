@@ -4,6 +4,8 @@
  */
 package com.mycompany.trabalho.oo;
 
+import java.util.Scanner;
+
 /**
  *
  * @author jv
@@ -15,8 +17,24 @@ public class Thief extends Character {
     
 
     @Override
-    public void attack(Enemy opponent) {
-        System.out.println(getName() + " ataca " + opponent.getName() + " com uma adaga.");
-        opponent.takeDamage(this.attackPower);
+    public void attack(Enemy opponent, int attack) {
+        switch(attack){
+            case 0 -> {
+                System.out.println(getName() + " ataca " + opponent.getName() + " com a adaga.");
+                opponent.takeDamage(this.attackPower);
+            }
+            case 1 -> {
+                System.out.println(getName() + " ataca " + opponent.getName() + " com a mão.");
+                opponent.takeDamage(this.attackPower / 2);
+            }
+        }
+    }
+    
+    @Override
+    public int message(){
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Como você deseja atacar");
+        System.out.println("0: atacar com a adaga\n 1:atacar com a mão");
+        return teclado.nextInt();
     }
 }

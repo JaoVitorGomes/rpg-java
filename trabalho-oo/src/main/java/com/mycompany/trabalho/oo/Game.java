@@ -17,7 +17,7 @@ public class Game {
         
         //variables
         String name;
-        int option;
+        int option, attack;
         Scanner teclado = new Scanner(System.in);
         
         // Character and enemy creation logic
@@ -33,15 +33,18 @@ public class Game {
         Character player = createCharacter(option, name);
         Enemy enemy = createEnemy();
 
+        System.out.println("\n um "+ enemy.getName() + " apareceu!");
         // Combat logic
         while (player.getHealth() > 0 && enemy.getHealth() > 0) {
-            System.out.println("\n" + player.getName() + " tem " + player.getHealth() + " de vida.");
-            System.out.println(enemy.getName() + " tem " + enemy.getHealth() + " de vida.");
-            player.attack(enemy);
+            
 
+            attack = player.message();
+            player.attack(enemy, attack);
+            System.out.println(enemy.getName() + " tem " + enemy.getHealth() + " de vida.");
             if (enemy.getHealth() > 0) {
                 enemy.attack(player);
             }
+            
         }
 
         // Game over logic
@@ -57,20 +60,20 @@ public class Game {
         //Character options
         switch(option){
             case 0 -> {
-                return new Warrior(name, 200,2);
+                return new Warrior(name, 20,2);
             }
             case 1 -> {
-                return new Mage(name,75,6);
+                return new Mage(name,6,6);
             }
             case 2 -> {
-                return new Thief(name, 100, 5);
+                return new Thief(name, 10, 5);
             }
         }
-        return new Thief(name, 100, 5);
+        return new Thief(name, 10, 5);
     }
 
     // Create Enemy
     public Enemy createEnemy() {
-        return new Enemy("Goblin fraco", 50,2);
+        return new Enemy("Goblin fraco", 10,2);
     }
 }

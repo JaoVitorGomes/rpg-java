@@ -18,8 +18,8 @@ public abstract class Character {
         this.health = health;
         this.attackPower = attack;
     }
-
-    public abstract void attack(Enemy opponent);
+    public abstract int message();
+    public abstract void attack(Enemy opponent, int attack);
 
     public String getName() {
         return name;
