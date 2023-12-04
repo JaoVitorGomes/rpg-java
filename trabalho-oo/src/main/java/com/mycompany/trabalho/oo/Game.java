@@ -59,13 +59,13 @@ public class Game {
     public Character createCharacter(int option, String name) {
         //Character options
         switch(option){
-            case 0 -> {
+            case 0: {
                 return new Warrior(name, 20,2);
             }
-            case 1 -> {
+            case 1: {
                 return new Mage(name,6,6);
             }
-            case 2 -> {
+            case 2: {
                 return new Thief(name, 10, 5);
             }
         }
