@@ -12,6 +12,13 @@ package com.mycompany.trabalho.oo;
 public class TrabalhoOo {
 
     public static void main(String[] args) {
+        
+        NewJFrame frame = new NewJFrame(1);
+        frame.
+        
+        // Definir a visibilidade da janela como verdadeira para exibi-la
+        frame.setVisible(true);
+        
         Game game = new Game();
         game.startGame();
     }
