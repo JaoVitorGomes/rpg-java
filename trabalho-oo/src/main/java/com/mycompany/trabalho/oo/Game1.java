@@ -23,6 +23,8 @@ public class Game1 extends javax.swing.JFrame {
         initComponents();
         jProgressBar1.setValue(this.player.getHealth());
         jProgressBar2.setValue(this.enemy.getHealth());
+        jTextPane1.setEditable(false);
+        
         
     }
     
@@ -50,17 +52,21 @@ public class Game1 extends javax.swing.JFrame {
 
     }
     
-    private void verify(){
-        this.player.attack(this.enemy, 0);
+    private void verify(int hability){
+        String message;
+        message = this.player.attack(this.enemy, hability);
+        jTextPane1.setText(message);
         System.out.println(this.enemy.getHealth());
         jProgressBar2.setValue(this.enemy.getHealth());
         if(this.enemy.getHealth() > 0){
-            this.enemy.attack(this.player);
+            message = message + "\n" + this.enemy.attack(this.player);
             jProgressBar1.setValue(this.player.getHealth());
+            jTextPane1.setText(message);
+             
         }else{
         
         if (player.getHealth() > 0) {
-            JOptionPane.showMessageDialog(null,"\nParabens! " + this.player.getName() + " você ganhou!" );
+            JOptionPane.showMessageDialog(null,"\nParabens  " + this.player.getName() + "! você ganhou!" );
             
         } else {
             JOptionPane.showMessageDialog(null,"\n" + this.player.getName() + " perdeu!." );
@@ -220,12 +226,12 @@ public class Game1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        verify();
+        verify(0);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.player.attack(this.enemy, 1);
+        verify(1);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

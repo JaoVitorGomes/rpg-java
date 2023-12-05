@@ -14,16 +14,21 @@ public class Mage extends Character {
     }
 
     @Override
-    public void attack(Enemy opponent, int attack) {
+    public String attack(Enemy opponent, int attack) {
         switch(attack){
             case 0: {
-                System.out.println(getName() + " ataca " + opponent.getName() + " com fireball.");
                 opponent.takeDamage(this.attackPower);
+                return (getName() + " ataca " + opponent.getName() + " com fireball.");
             }
             case 1: {
-                System.out.println(getName() + " ataca " + opponent.getName() + " com a mão.");
                 opponent.takeDamage(this.attackPower / 2);
+                return (getName() + " ataca " + opponent.getName() + " com a mão.");
             }
+            
+            default:{
+                return (getName() + " errou o ataque");
+            }
+
         }
     }
     

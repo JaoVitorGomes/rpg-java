@@ -22,7 +22,8 @@ public abstract class Character {
     }
     public abstract int message();
     public abstract String classe();
-    public abstract void attack(Enemy opponent, int attack);
+    public abstract String attack(Enemy opponent, int attack);    
+
 
     public String getName() {
         return name;

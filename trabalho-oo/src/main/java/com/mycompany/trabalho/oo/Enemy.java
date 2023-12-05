@@ -51,8 +51,8 @@ public class Enemy {
         return health > 0;
     }
     
-    public void attack(Character player) {
-        System.out.println(getName() + " ataca " + player.getName() + " com um porrete.");
+    public String attack(Character player) {
         player.takeDamage(this.damage);
+        return (getName() + " ataca " + player.getName() + " com um porrete.");
     }
 }
