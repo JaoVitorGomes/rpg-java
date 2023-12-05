@@ -34,4 +34,9 @@ public class Mage extends Character {
         System.out.println("0: atacar com magia\n 1:atacar com a mão");
         return teclado.nextInt();
     }
+    
+    @Override
+    public String classe(){
+        return "mago";
+    }
 }

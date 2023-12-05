@@ -8,12 +8,15 @@ package com.mycompany.trabalho.oo;
  *
  * @author jv
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class TelaInicial extends javax.swing.JFrame {
+    
+    private String nick;
+    private int character;
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public TelaInicial() {
         initComponents();
     }
 
@@ -117,6 +120,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -125,19 +129,20 @@ public class NewJFrame extends javax.swing.JFrame {
         String itemSelecionado = (String) comboBox.getSelectedItem();
         System.out.println("Item selecionado: " + itemSelecionado);
         
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        teste(1);
+        
+        Game1 jogo = new Game1(jTextField1.getText(),jComboBox1.getSelectedIndex());
+        jogo.setVisible(true);
         
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public int teste(int valor){
-        return valor;
-    }
+
     
     /**
      * @param args the command line arguments
@@ -156,20 +161,21 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                new TelaInicial().setVisible(true);
                 
                 System.out.println("teste");
             }

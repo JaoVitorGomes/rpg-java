@@ -13,12 +13,14 @@ public class Enemy {
     private String name;
     private int health;
     private int damage;
+    private int maxHealth;
 
     public Enemy(String name, int health, int damage) {
         // Set values
         this.name = name;
         this.health = health;
         this.damage = damage;
+        this.maxHealth = health;
     }
 
     public String getName() {
@@ -28,6 +30,11 @@ public class Enemy {
     public int getHealth() {
         return health;
     }
+    
+    public int getMaxHealth() {
+        return health;
+    }
+
 
     public int getDamage() {
         return damage;

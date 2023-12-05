@@ -11,14 +11,17 @@ package com.mycompany.trabalho.oo;
 public abstract class Character {
     private String name;
     private int health;
+    private int maxHealth;
     public int attackPower;
 
     public Character(String name, int health, int attack) {
         this.name = name;
         this.health = health;
         this.attackPower = attack;
+        this.maxHealth = health;
     }
     public abstract int message();
+    public abstract String classe();
     public abstract void attack(Enemy opponent, int attack);
 
     public String getName() {
@@ -27,6 +30,10 @@ public abstract class Character {
 
     public int getHealth() {
         return health;
+    }
+    
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
     public void takeDamage(int damage) {

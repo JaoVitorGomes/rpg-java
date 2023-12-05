@@ -37,4 +37,9 @@ public class Thief extends Character {
         System.out.println("0: atacar com a adaga\n 1:atacar com a mão");
         return teclado.nextInt();
     }
+    
+    @Override
+    public String classe(){
+        return "ladrão";
+    }
 }

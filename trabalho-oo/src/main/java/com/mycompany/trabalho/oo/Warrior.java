@@ -35,4 +35,9 @@ public class Warrior extends Character {
         System.out.println("0: atacar com a espada longa\n 1:atacar com a mão");
         return teclado.nextInt();
     }
+    
+    @Override
+    public String classe(){
+        return "guerreiro";
+    }
 }
