@@ -11,8 +11,8 @@ import java.util.Scanner;
  * @author jv
  */
 public class Thief extends Character {
-    public Thief(String name, int health,int attack) {
-        super(name, health,attack );
+    public Thief(String name, int health,int maxHealth,int attack) {
+        super(name, health,maxHealth,attack );
     }
     
 

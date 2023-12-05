@@ -5,6 +5,10 @@
 package com.mycompany.trabalho.oo;
 
 import javax.swing.JOptionPane;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -14,19 +18,28 @@ public class Game1 extends javax.swing.JFrame {
     
         private Character player;
         private Enemy enemy;
+        private static List<Character> saves = new ArrayList<>();
 
     /**
      * Creates new form Game1
      */
     public Game1(String nick, int character) {
-        logic(nick, character);
-        initComponents();
-        jProgressBar1.setValue(this.player.getHealth());
-        jProgressBar2.setValue(this.enemy.getHealth());
-        jTextPane1.setEditable(false);
+        try {
+            readArchive("./src/main/java/com/mycompany/trabalho/oo/arquivos/saves.txt", "saves");
+            logic(nick, character);
+            initComponents();
+
+            jProgressBar1.setValue(this.player.getHealth());
+            jProgressBar2.setValue(this.enemy.getHealth());
+            jTextPane1.setEditable(false);
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle or log the exception appropriately
+        }
+        
         
         
     }
+
     
     private void logic(String nick, int character){
      String name;
@@ -35,15 +48,15 @@ public class Game1 extends javax.swing.JFrame {
 
             switch(character){
             case 0: {
-                this.player = new Warrior(nick, 20,2);
+                this.player = new Warrior(nick, 20,20,2);
                 break;
             }
             case 1: {
-                this.player = new Mage(nick,6,6);
+                this.player = new Mage(nick,6,6,6);
                 break;
             }
             case 2: {
-                this.player = new Thief(nick, 10, 5);
+                this.player = new Thief(nick, 10,10, 5);
                 break;
             }
         }
@@ -75,7 +88,167 @@ public class Game1 extends javax.swing.JFrame {
         }
     
     }
+    
+    
+        private static void readArchive(String referencia, String arrayAlvo) throws IOException {
+        BufferedReader bufferLeitura = new BufferedReader(new FileReader(referencia));
 
+        String linha = "";
+        String linhaArray[];
+
+        while (true) {
+            if (linha != null) {
+                linhaArray = linha.split("/&&/");
+                switch (arrayAlvo) {
+                    case "save":
+                        addSave(linhaArray);
+                        break;
+                    case "placar":
+                        //addPlacar(linhaArray);
+                        break;
+                }
+            } else {
+                break;
+            }
+
+            linha = bufferLeitura.readLine();
+        }
+
+        bufferLeitura.close();
+    }
+
+    private static void escreveArquivo(String referencia, String conteudo) throws IOException {
+        BufferedWriter bufferEscrita = new BufferedWriter(new FileWriter(referencia));
+
+        bufferEscrita.write(conteudo);
+
+        bufferEscrita.flush();
+
+        bufferEscrita.close();
+    }
+    
+        private static void salvaArquivos() throws IOException {
+        String savesConteudo = "";
+
+        for (Character save: saves) {
+            if (!save.getName().isBlank()) {
+                savesConteudo += save.getName() + "/&&/" + "0" + "/&&/" + save.getHealth()+ "/&&/" + save.getMaxHealth()+ "/&&/" + save.getAttackPower()+ "/&&/" + "0" + "/&&/" + false;
+                savesConteudo += "\n";
+            }
+        }
+
+
+        escreveArquivo("./src/main/java/com/mycompany/trabalho/oo/arquivos/saves.txt", savesConteudo);
+
+    }
+    
+    
+    
+    private static void addSave(String linhaArray[]) {
+        String name = "";
+        int character = 0;
+        int health = 0;
+        int maxHealth = 0;
+        int attackPower = 0;
+        int level = 0;
+        boolean isDead = false;
+
+        for (int i = 0; i < linhaArray.length; i++) {
+            switch (i) {
+                case 0:
+                    name = linhaArray[i];
+                    break;
+                case 1:
+                    character = Integer.parseInt(linhaArray[i]);
+                    break;
+                case 2:
+                    health = Integer.parseInt(linhaArray[i]);
+                    break;
+                case 3:
+                    maxHealth = Integer.parseInt(linhaArray[i]);
+                    break;
+                case 4:
+                    attackPower =  Integer.parseInt(linhaArray[i]);
+                    break;
+                case 5:
+                    level = Integer.parseInt(linhaArray[i]);
+                    break;
+                case 6:
+                    isDead = Boolean.parseBoolean(linhaArray[i]);
+                    break;
+            }
+        }
+        
+        switch(character) {
+            case 0:{
+                saves.add(new Warrior(name,health,maxHealth,attackPower));
+                break;
+            }
+            case 1:{
+                saves.add(new Mage(name,health,maxHealth,attackPower));
+                break;
+            }
+            case 2:{
+                saves.add(new Thief(name,health,maxHealth,attackPower));
+                break;
+            }
+        
+        }
+    }
+/**    
+    private static void addPlacar(String linhaArray[]) {
+        String name = "";
+        int character = 0;
+        int health = 0;
+        int maxHealth = 0;
+        int attackPower = 0;
+        int level = 0;
+        boolean isDead = false;
+
+        for (int i = 0; i < linhaArray.length; i++) {
+            switch (i) {
+                case 0:
+                    name = linhaArray[i];
+                    break;
+                case 1:
+                    character = Integer.parseInt(linhaArray[i]);
+                    break;
+                case 2:
+                    health = Integer.parseInt(linhaArray[i]);
+                    break;
+                case 3:
+                    maxHealth = Integer.parseInt(linhaArray[i]);
+                    break;
+                case 4:
+                    attackPower =  Integer.parseInt(linhaArray[i]);
+                    break;
+                case 5:
+                    level = Integer.parseInt(linhaArray[i]);
+                    break;
+                case 6:
+                    isDead = Boolean.parseBoolean(linhaArray[i]);
+                    break;
+            }
+        }
+        
+        switch(character) {
+            case 0:{
+                saves.add(new Warrior(name,health,maxHealth,attackPower));
+                break;
+            }
+            case 1:{
+                saves.add(new Mage(name,health,maxHealth,attackPower));
+                break;
+            }
+            case 2:{
+                saves.add(new Thief(name,health,maxHealth,attackPower));
+                break;
+            }
+        
+        }
+    }
+*/
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

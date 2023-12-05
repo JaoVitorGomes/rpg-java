@@ -9,8 +9,8 @@ import java.util.*;
  * @author jv
  */
 public class Mage extends Character {
-    public Mage(String name, int health,int attack) {
-        super(name, health,attack);
+    public Mage(String name, int health,int maxHealth,int attack) {
+        super(name, health,maxHealth,attack);
     }
 
     @Override

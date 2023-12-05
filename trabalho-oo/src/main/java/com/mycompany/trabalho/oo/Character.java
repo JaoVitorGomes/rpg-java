@@ -14,11 +14,11 @@ public abstract class Character {
     private int maxHealth;
     public int attackPower;
 
-    public Character(String name, int health, int attack) {
+    public Character(String name, int health,int maxHealth ,int attack) {
         this.name = name;
         this.health = health;
         this.attackPower = attack;
-        this.maxHealth = health;
+        this.maxHealth = maxHealth;
     }
     public abstract int message();
     public abstract String classe();

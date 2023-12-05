@@ -60,16 +60,16 @@ public class Game {
         //Character options
         switch(option){
             case 0: {
-                return new Warrior(name, 20,2);
+                return new Warrior(name, 20,20,2);
             }
             case 1: {
-                return new Mage(name,6,6);
+                return new Mage(name,6,6,6);
             }
             case 2: {
-                return new Thief(name, 10, 5);
+                return new Thief(name, 10,10, 5);
             }
         }
-        return new Thief(name, 10, 5);
+        return new Thief(name, 10,10, 5);
     }
 
     // Create Enemy
