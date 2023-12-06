@@ -15,7 +15,7 @@ public class Enemy {
     private int damage;
     private int maxHealth;
 
-    public Enemy(String name, int health, int damage) {
+    public Enemy(String name, int health,int maxHealth, int damage) {
         // Set values
         this.name = name;
         this.health = health;
@@ -53,6 +53,12 @@ public class Enemy {
     
     public String attack(Character player) {
         player.takeDamage(this.damage);
-        return (getName() + " ataca " + player.getName() + " com um porrete.");
+        return (getName() + " ataca " + player.getName() + ".");
+    }
+    
+    //Mudanca do Yan
+    
+    public void reviver() {
+        this.health = this.maxHealth;
     }
 }

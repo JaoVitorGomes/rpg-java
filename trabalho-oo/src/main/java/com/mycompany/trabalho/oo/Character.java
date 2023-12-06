@@ -13,12 +13,15 @@ public abstract class Character {
     private int health;
     private int maxHealth;
     public int attackPower;
+    
+    //Mudanca do Yan
+    private int level = 1;
 
-    public Character(String name, int health,int maxHealth ,int attack) {
+    public Character(String name, int health,int maxHealth, int attack) {
         this.name = name;
         this.health = health;
         this.attackPower = attack;
-        this.maxHealth = maxHealth;
+        this.maxHealth = health;
     }
     public abstract int message();
     public abstract String classe();
@@ -51,5 +54,28 @@ public abstract class Character {
     
     public boolean isAlive() {
         return health > 0;
+    }
+    
+    //Mudanca do Yan
+    
+    public void UPlevel(int lvl) {
+        level++;
+        this.maxHealth = this.maxHealth + (2 * level);
+        this.health = this.health + (2 * level);
+        this.attackPower =+ (1 * level * lvl);
+    }
+    
+    public int getLevel(){
+        return this.level;
+    }
+    
+    public void Cura(){
+        int cura;
+        cura = (this.maxHealth / 10) * level * this.attackPower;
+        this.health = this.health + cura;
+    }
+    
+    public void reviver() {
+        this.health = this.maxHealth;
     }
 }

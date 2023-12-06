@@ -74,6 +74,6 @@ public class Game {
 
     // Create Enemy
     public Enemy createEnemy() {
-        return new Enemy("Goblin fraco", 10,2);
+        return new Enemy("Goblin fraco", 10,10,2);
     }
 }
