@@ -3,6 +3,8 @@
  */
 
 package com.mycompany.trabalho.oo;
+import com.mycompany.trabalho.oo.view.*;
+import com.mycompany.trabalho.oo.classes.*;
 
 /**
  *
@@ -13,7 +15,7 @@ public class TrabalhoOo {
 
     public static void main(String[] args) {
         
-        TelaInicial frame = new TelaInicial();
+        TelaInicio frame = new TelaInicio();
         frame.setLocationRelativeTo(null);
         
         // Definir a visibilidade da janela como verdadeira para exibi-la
