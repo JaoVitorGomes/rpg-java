@@ -43,12 +43,10 @@ public class Utils {
                 saves.remove(getSave(i));
             }
         }
-    }
-    
-    
+    } 
 
     public static String[] getNameSaves() {
-        String[] names = new String[saves.size()];;
+        String[] names = new String[saves.size()];
         int i = 0;
 
         for (Save save : saves) {

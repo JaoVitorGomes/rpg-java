@@ -95,7 +95,7 @@ public class Game extends javax.swing.JFrame {
     private void logic(){
 
             
-        switch(this.player.getLevel()){
+        switch(level){
             case 0: {
                 this.enemy = new Enemy("Goblin fraco", 10,10,2);
                 break;
@@ -108,12 +108,8 @@ public class Game extends javax.swing.JFrame {
                 this.enemy = new Enemy("Troll", 70,70,5);
                 break;
             }
-            case 100:{
-                this.enemy = new Enemy("Devorador de mundos", 1000,1000,500);
-                break;
-            }
             default:{
-                this.enemy = new Enemy("Devorador de mundos", 100,100,50);
+                this.enemy = new Enemy("Devorador de mundos", 1000,1000,500);
             }
         }
          
@@ -165,7 +161,6 @@ public class Game extends javax.swing.JFrame {
                 //Mudanca do yan
                 mn();
             }
-        
     
     }
     
@@ -364,6 +359,7 @@ public class Game extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
         //Mudaca yan
         TelaInicio frame = new TelaInicio();
         frame.setLocationRelativeTo(null);
