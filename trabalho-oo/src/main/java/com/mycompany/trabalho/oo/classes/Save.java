@@ -6,8 +6,9 @@ package com.mycompany.trabalho.oo.classes;
 
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
+
 public class Save {
     
     private Character personagem;

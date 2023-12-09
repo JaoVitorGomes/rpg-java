@@ -6,9 +6,12 @@ package com.mycompany.trabalho.oo.classes;
 
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
-public class Enemy {
+
+// O objetivo dessa classe é a criação dos inimigos, com todos os dados necessario para a criação deles
+
+public class Enemy implements GameEntity{
     //variables
     private String name;
     private int health;
@@ -39,7 +42,9 @@ public class Enemy {
     public int getDamage() {
         return damage;
     }
-
+    
+    
+    @Override
     public void takeDamage(int damage) {
         this.health -= damage;
         if (this.health <= 0) {
@@ -47,6 +52,7 @@ public class Enemy {
         }
     }
 
+    @Override
     public boolean isAlive() {
         return health > 0;
     }
@@ -57,8 +63,10 @@ public class Enemy {
     }
     
     //Mudanca do Yan
-    
+    @Override
     public void reviver() {
         this.health = this.maxHealth;
     }
+
+    
 }

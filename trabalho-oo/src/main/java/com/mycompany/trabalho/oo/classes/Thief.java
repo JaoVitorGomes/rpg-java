@@ -8,8 +8,11 @@ import java.util.Scanner;
 
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
+
+// O objetivo dessa classe é criar a classe ladrão para o jogador
+
 public class Thief extends Character {
     public Thief(String name, int health,int maxHealth,int attack) {
         super(name, health,maxHealth,attack );

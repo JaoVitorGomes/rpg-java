@@ -15,8 +15,11 @@ import java.util.*;
 
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
+
+// O objetivo dessa classe é o jogo em si, tanto a logica quanto a visualisação
+
 public class Game extends javax.swing.JFrame {
         private static int level;
         private static int idSave;
@@ -163,6 +166,12 @@ public class Game extends javax.swing.JFrame {
             }
     
     }
+    
+    private void handleException(Exception ex) {
+        ex.printStackTrace(); // Isso pode ser modificado conforme necessário
+        JOptionPane.showMessageDialog(null, "Ocorreu um erro: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+
     
 
     /**
@@ -336,11 +345,19 @@ public class Game extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        verify(0);   
+        try {
+            verify(0);
+        } catch (Exception ex) {
+            handleException(ex);
+        }  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        verify(1);
+        try{
+            verify(1);
+        } catch (Exception ex) {
+            handleException(ex);
+        } 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

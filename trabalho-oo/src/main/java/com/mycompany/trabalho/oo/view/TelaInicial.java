@@ -14,8 +14,11 @@ import static com.mycompany.trabalho.oo.classes.Utils.readArchive;
 
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
+
+// O objetivo dessa classe é a criação da tela onde o usuario inicia um novo personagem
+
 public class TelaInicial extends javax.swing.JFrame {
     
     private String nick;

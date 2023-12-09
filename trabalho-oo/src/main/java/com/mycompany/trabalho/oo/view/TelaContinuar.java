@@ -11,13 +11,14 @@ import java.io.IOException;
 
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
+
+// O objetivo dessa classe é a criação da tela onde escolhe o save
+
 public class TelaContinuar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaContinuar
-     */
+
     public TelaContinuar() {
         String[] listas = lista();
             System.out.println("lista:"+listas.length);

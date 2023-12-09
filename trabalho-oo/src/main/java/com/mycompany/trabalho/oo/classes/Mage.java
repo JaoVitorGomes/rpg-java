@@ -4,10 +4,14 @@
  */
 package com.mycompany.trabalho.oo.classes;
 import java.util.*;
+
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
+
+// O objetivo dessa classe é criar a classe mago para o jogador
+
 public class Mage extends Character {
     public Mage(String name, int health,int maxHealth,int attack) {
         super(name, health,maxHealth,attack);
@@ -49,4 +53,6 @@ public class Mage extends Character {
     public int idClasse() {
         return 1;
     }
+
+    
 }

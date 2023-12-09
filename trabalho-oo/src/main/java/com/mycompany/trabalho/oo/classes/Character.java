@@ -6,9 +6,13 @@ package com.mycompany.trabalho.oo.classes;
 
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
-public abstract class Character {
+
+// O objetivo dessa classe é adicionar os elementos necessarios para um jogador, sendo que dados mais especifico fica
+// na propria classe da classe
+
+public abstract class Character implements GameEntity{
     private String name;
     private int health;
     private int maxHealth;
@@ -17,7 +21,7 @@ public abstract class Character {
     //Mudanca do Yan
     private int level = 1;
 
-    public Character(String name, int health,int maxHealth, int attack) {
+    public Character(String name, int health,int maxHealth, int attack){
         this.name = name;
         this.health = health;
         this.attackPower = attack;
@@ -40,7 +44,8 @@ public abstract class Character {
     public int getMaxHealth() {
         return maxHealth;
     }
-
+    
+    @Override
     public void takeDamage(int damage) {
         this.health -= damage;
         if (this.health <= 0) {
@@ -53,6 +58,7 @@ public abstract class Character {
     }
 
     
+    @Override
     public boolean isAlive() {
         return health > 0;
     }
@@ -73,9 +79,15 @@ public abstract class Character {
     public void Cura(){
         int cura;
         cura = (this.maxHealth / 10) * level * this.attackPower;
-        this.health = this.health + cura;
+        if(this.health + cura > this.maxHealth){
+            this.health = this.maxHealth;
+        }else{
+            this.health = this.health + cura;
+        }
+        
     }
     
+    @Override
     public void reviver() {
         this.health = this.maxHealth;
     }

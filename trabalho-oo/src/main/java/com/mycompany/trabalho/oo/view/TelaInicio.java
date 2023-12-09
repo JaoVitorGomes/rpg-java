@@ -6,15 +6,17 @@ package com.mycompany.trabalho.oo.view;
 
 import java.io.IOException;
 import com.mycompany.trabalho.oo.classes.*;
+
 /**
  *
- * @author jv
+ * @author João Vitor e Yan
  */
+
+// O objetivo dessa classe é a criação da tela de inicio, onde pode escolher um novo jogo ou continuar
+
 public class TelaInicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaInicio
-     */
+
     public TelaInicio() {
         initComponents();
     }
