@@ -11,6 +11,7 @@ import java.util.List;
 import com.mycompany.trabalho.oo.classes.Character;
 import com.mycompany.trabalho.oo.classes.*;
 import static com.mycompany.trabalho.oo.classes.Utils.readArchive;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -184,18 +185,25 @@ public class TelaInicial extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
+        if(jTextField1.getText().length() > 0){
         Save save = createSave(jTextField1.getText(),jComboBox1.getSelectedIndex());
         Game.setLevel(0);
-        System.out.println("teste111");
-        System.out.println("valor do id"+ Utils.getSaves().indexOf(save));
         Game.setIdSave(Utils.getSaves().indexOf(save));
         Game jogo = new Game(save.getPersonagem(), save.getInimigo());
         jogo.setLocationRelativeTo(null);
         jogo.setVisible(true);
         dispose();
+        }else{
+            JOptionPane.showMessageDialog(
+            null,
+            "Nome invalido! Digite um nome",
+            "Nome invalido",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+        }
         
         
         

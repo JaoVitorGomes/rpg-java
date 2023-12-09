@@ -90,25 +90,29 @@ public class Game extends javax.swing.JFrame {
     }
     //mudanca do yan
     private void mn(){
-        TelaInicial frame = new TelaInicial();
+        Utils.modifySave(getPlayer(),getEnemy(),level,idSave);
+        Utils.limpaSave();
+        Utils.salvaArquivos();
+        TelaInicio frame = new TelaInicio();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true); 
         dispose();
     }
     private void logic(){
 
-            
-        switch(level){
+        int contador = level%3;
+
+        switch(contador){
             case 0: {
-                this.enemy = new Enemy("Goblin fraco", 10,10,2);
+                this.enemy = new Enemy("Goblin", 10 + (3* level),10 + (3* level),2 + (1 * level));
                 break;
             }
             case 1: {
-               this.enemy = new Enemy("Lobo Selvagem", 5,5,6);
+               this.enemy = new Enemy("Lobo Selvagem", 5+ (3* level),5 + (3* level),6 +(1* level));
                 break;
             }
             case 2: {
-                this.enemy = new Enemy("Troll", 70,70,5);
+                this.enemy = new Enemy("Troll", 70 + (5* level),70 + (5* level),5 + (1* level));
                 break;
             }
             default:{
@@ -136,11 +140,10 @@ public class Game extends javax.swing.JFrame {
                 //JOptionPane.showMessageDialog(null,"\nParabens  " + this.player.getName() + "! você ganhou!" );
                 int selection = JOptionPane.showConfirmDialog(
                                     null
-                            , "\nParabens  " + this.player.getName() + "! você ganhou!" 
+                            , "\n quer ir para a proxima fase?" 
                             , "mensagem "
-                            , JOptionPane.OK_OPTION
+                            , JOptionPane.YES_NO_OPTION
                             , JOptionPane.INFORMATION_MESSAGE);
-                this.enemy.reviver();
                 jProgressBar2.setValue(this.enemy.getHealth());
                 jProgressBar1.setValue(this.player.getHealth());
                 if (selection == JOptionPane.OK_OPTION)
@@ -152,10 +155,13 @@ public class Game extends javax.swing.JFrame {
                     jogo.setVisible(true);
                     dispose();
                 }
-                else if (selection == JOptionPane.CANCEL_OPTION)
+                else if (selection == JOptionPane.NO_OPTION)
                 {
                     // Code to use when CANCEL is PRESSED.
-                    System.out.println("Selected Option Is CANCEL : " + selection);
+                    System.out.println("cancelou");
+                    this.enemy.reviver();
+                    jProgressBar2.setValue(this.enemy.getHealth());
+                    jProgressBar1.setValue(this.player.getHealth());
                 }
                 
             } else if(player.getHealth() < 1) {
@@ -377,6 +383,9 @@ public class Game extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
+        Utils.modifySave(getPlayer(),getEnemy(),level,idSave);
+        Utils.limpaSave();
+        Utils.salvaArquivos();
         //Mudaca yan
         TelaInicio frame = new TelaInicio();
         frame.setLocationRelativeTo(null);

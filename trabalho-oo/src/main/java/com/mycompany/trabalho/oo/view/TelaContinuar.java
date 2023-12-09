@@ -8,6 +8,7 @@ import com.mycompany.trabalho.oo.classes.Character;
 import com.mycompany.trabalho.oo.classes.*;
 import static com.mycompany.trabalho.oo.classes.Utils.readArchive;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -137,6 +138,9 @@ public class TelaContinuar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        if(jList1.getSelectedIndex() > -1){
+        
         int index = jList1.getSelectedIndex();
         Save save = Utils.getSave(index);
         Game.setLevel(save.getLevel());
@@ -145,6 +149,14 @@ public class TelaContinuar extends javax.swing.JFrame {
         jogo.setLocationRelativeTo(null);
         jogo.setVisible(true);
         dispose();
+        }else{
+            JOptionPane.showMessageDialog(
+            null,
+            "save invalido! Escolha um save",
+            "save invalido",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
