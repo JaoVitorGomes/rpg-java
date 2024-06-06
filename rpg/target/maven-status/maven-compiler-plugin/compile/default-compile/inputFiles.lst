@@ -5,9 +5,11 @@
 /home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/classes/GameEntity.java
 /home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/classes/Character.java
 /home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/view/TelaInicial.java
-/home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/classes/Utils.java
 /home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/classes/Warrior.java
+/home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/logica/Utils.java
 /home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/view/TelaInicio.java
+/home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/view/Game1.java
+/home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/logica/Logic.java
 /home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/classes/Enemy.java
 /home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/classes/Save.java
 /home/jv/Documents/github/rpg-java/rpg/src/main/java/com/mycompany/rpg/view/Game.java

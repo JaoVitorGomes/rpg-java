@@ -16,9 +16,10 @@ public abstract class Character implements GameEntity{
     private String name;
     private int health;
     private int maxHealth;
-    public int attackPower;
-    
-    //Mudanca do Yan
+    private int attackPower;
+    private int armor;
+    private int attackSpeed;
+    private int moveSpeed;
     private int level = 1;
 
     public Character(String name, int health,int maxHealth, int attack){
@@ -53,6 +54,10 @@ public abstract class Character implements GameEntity{
         }
     }
     
+    public int speed(){
+        return (this.moveSpeed + this.attackSpeed);
+    }
+    
     public int getAttackPower() {
         return attackPower;
     }
@@ -62,8 +67,7 @@ public abstract class Character implements GameEntity{
     public boolean isAlive() {
         return health > 0;
     }
-    
-    //Mudanca do Yan
+
     
     public void UPlevel(int lvl) {
         level++;

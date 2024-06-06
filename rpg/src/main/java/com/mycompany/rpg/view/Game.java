@@ -6,7 +6,7 @@ package com.mycompany.rpg.view;
 
 import com.mycompany.rpg.classes.Character;
 import com.mycompany.rpg.classes.Enemy;
-import com.mycompany.rpg.classes.Utils;
+import com.mycompany.rpg.logica.Utils;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
@@ -18,7 +18,7 @@ import java.util.*;
  * @author JV
  */
 
-// O objetivo dessa classe é o jogo em si, tanto a logica quanto a visualisação
+// O objetivo dessa classe é o jogo em si, tanto a logica quanto a visualização
 
 public class Game extends javax.swing.JFrame {
         private static int level;
@@ -123,7 +123,18 @@ public class Game extends javax.swing.JFrame {
 
 
     }
+    
+//    private void initialize(){
+//        if(Logic.initialize()){
+//            return vc morreu;
+//  
+//        }
+//    
+//    }
+//    
+    
     private void verify(int hability){
+
         String message;
         message = this.player.attack(this.enemy, hability);
         jTextPane1.setText(message);

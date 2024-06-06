@@ -4,7 +4,7 @@
  */
 package com.mycompany.rpg.view;
 
-import com.mycompany.rpg.classes.Utils;
+import com.mycompany.rpg.logica.Utils;
 import com.mycompany.rpg.classes.Mage;
 import com.mycompany.rpg.classes.Save;
 import com.mycompany.rpg.classes.Thief;
@@ -15,7 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import com.mycompany.rpg.classes.Character;
-import static com.mycompany.rpg.classes.Utils.readArchive;
+import static com.mycompany.rpg.logica.Utils.readArchive;
 import javax.swing.JOptionPane;
 
 /**

@@ -23,11 +23,11 @@ public class Thief extends Character {
     public String attack(Enemy opponent, int attack) {
         switch(attack){
             case 0: {
-                opponent.takeDamage(this.attackPower);
+                opponent.takeDamage(this.getAttackPower());
                 return (getName() + " ataca " + opponent.getName() + " com a adaga.");
             }
             case 1: {
-                opponent.takeDamage(this.attackPower / 2);
+                opponent.takeDamage(this.getAttackPower() / 2);
                 return (getName() + " ataca " + opponent.getName() + " com a mão.");
             }
             

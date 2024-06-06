@@ -3,6 +3,7 @@
  */
 
 package com.mycompany.rpg;
+import com.mycompany.rpg.view.Game1;
 import com.mycompany.rpg.view.TelaInicio;
 
 /**
@@ -14,11 +15,12 @@ public class App {
 
     public static void main(String[] args) {
         
-        TelaInicio frame = new TelaInicio();
-        frame.setLocationRelativeTo(null);
+        Game1.main(args);
+        // TelaInicio frame = new TelaInicio();
+        // frame.setLocationRelativeTo(null);
         
-        // Definir a visibilidade da janela como verdadeira para exibi-la
-        frame.setVisible(true);
+        // // Definir a visibilidade da janela como verdadeira para exibi-la
+        // frame.setVisible(true);
         
     }
 }

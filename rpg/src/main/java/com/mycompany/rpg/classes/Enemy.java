@@ -17,6 +17,8 @@ public class Enemy implements GameEntity{
     private int health;
     private int damage;
     private int maxHealth;
+    private int armor;
+    private int speed;
 
     public Enemy(String name, int health,int maxHealth, int damage) {
         // Set values
@@ -41,6 +43,10 @@ public class Enemy implements GameEntity{
 
     public int getDamage() {
         return damage;
+    }
+    
+    public int getSpeed() {
+        return this.speed;
     }
     
     

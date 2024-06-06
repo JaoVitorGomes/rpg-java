@@ -4,7 +4,7 @@
  */
 package com.mycompany.rpg.view;
 
-import com.mycompany.rpg.classes.Utils;
+import com.mycompany.rpg.logica.Utils;
 import java.io.IOException;
 
 /**

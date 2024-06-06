@@ -4,10 +4,10 @@
  */
 package com.mycompany.rpg.view;
 
-import com.mycompany.rpg.classes.Utils;
+import com.mycompany.rpg.logica.Utils;
 import com.mycompany.rpg.classes.Save;
 import com.mycompany.rpg.classes.Character;
-import static com.mycompany.rpg.classes.Utils.readArchive;
+import static com.mycompany.rpg.logica.Utils.readArchive;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
